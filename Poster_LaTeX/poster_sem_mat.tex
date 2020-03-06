@@ -1,0 +1,333 @@
+\documentclass[portrait,final,a1paper,margin=2cm]{baposter}
+%\documentclass[a4shrink,portrait,final]{baposter}
+% Usa a4shrink for an a4 sized paper.
+
+\tracingstats=2
+
+\usepackage{calc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{relsize}
+\usepackage{multirow}
+\usepackage{bm}
+%\usepackage[usenames]{color}%%coloquei
+\usepackage[uft8]{babel}%% coloquei
+\usepackage{graphicx}
+\usepackage{multicol}
+
+\usepackage{pgfbaselayers}
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+\usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage{helvet}
+%\usepackage{bookman}
+\usepackage{palatino}
+%%%%% separa silabas
+
+
+%%%%%
+\newcommand{\captionfont}{\footnotesize}
+\newtheorem{theo}{Theor.}      
+\selectcolormodel{cmyk}
+
+\graphicspath{{images/}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Some math symbols used in the text
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Format 
+\newcommand{\Matrix}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\Vector}[1]{\Matrix{#1}}
+\newcommand*{\SET}[1]  {\ensuremath{\mathcal{#1}}}
+\newcommand*{\MAT}[1]  {\ensuremath{\mathbf{#1}}}
+\newcommand*{\VEC}[1]  {\ensuremath{\bm{#1}}}
+\newcommand*{\CONST}[1]{\ensuremath{\mathit{#1}}}
+\newcommand*{\norm}[1]{\mathopen\| #1 \mathclose\|}% use instead of $\|x\|$
+\newcommand*{\abs}[1]{\mathopen| #1 \mathclose|}% use instead of $\|x\|$
+\newcommand*{\absLR}[1]{\left| #1 \right|}% use instead of $\|x\|$
+
+\def\norm#1{\mathopen\| #1 \mathclose\|}% use instead of $\|x\|$
+\newcommand{\normLR}[1]{\left\| #1 \right\|}% use instead of $\|x\|$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Multicol Settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\setlength{\columnsep}{0.7em}
+\setlength{\columnsep}{0.2em} %% coloquei
+\setlength{\columnseprule}{0mm}
+%%\setlength{\columnseprule}{-2mm}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Save space in lists. Use this after the opening of the list
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\compresslist}{%
+\setlength{\itemsep}{0.5pt}%.....
+\setlength{\parskip}{0pt}%
+\setlength{\parsep}{0pt}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Begin of Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Here starts the poster
+%%%---------------------------------------------------------------------------
+%%% Format it to your taste with the options
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define some colors
+\definecolor{silver}{cmyk}{0,0,0,0.3}
+\definecolor{yellow}{cmyk}{0,0,0.9,0.0}
+\definecolor{reddishyellow}{cmyk}{0,0.22,1.0,0.0}
+\definecolor{black}{cmyk}{0,0,0.0,1.0}
+\definecolor{darkYellow}{cmyk}{0,0,1.0,0.5}
+\definecolor{darkSilver}{cmyk}{0,0,0,0.1}
+
+\definecolor{lightyellow}{cmyk}{0,0,0.3,0.0}
+\definecolor{lighteryellow}{cmyk}{0,0,0.1,0.0}
+\definecolor{lighteryellow}{cmyk}{0,0,0.1,0.0}
+\definecolor{lightestyellow}{cmyk}{0,0,0.05,0.0}
+\definecolor{NTNUBlue}{rgb}{0.0470,0,0.5294}
+%%
+\typeout{Poster Starts}
+\background{
+  \begin{tikzpicture}[remember picture,overlay]%
+    \draw (current page.north west)+(-1.8em,1.8em) node[anchor=north west] {\includegraphics[height=1.1\textheight]{silhouettes_background}};
+  \end{tikzpicture}%
+}
+
+\newlength{\leftimgwidth}
+\begin{poster}%
+  % Poster Options
+  {
+  % Column spacing
+  colspacing=0.8cm,
+  % Color style
+  columns=2,            % número de colunas
+  %%% coloquei
+  bgColorOne=white,
+  bgColorTwo=white,
+  borderColor=white,
+  headerColorOne=green,
+  headerColorTwo=green,
+  headerFontColor=white,
+  boxColorOne=white,
+  boxColorTwo=green,
+  %%%
+  %bgColorOne=lighteryellow,
+  %bgColorTwo=lightestyellow,
+  %borderColor=reddishyellow,
+  %headerColorOne=yellow,
+  %headerColorTwo=reddishyellow,
+  %headerFontColor=black,
+  %boxColorOne=lightyellow,
+  %boxColorTwo=lighteryellow,
+  % Format of textbox
+  %textborder=roundedleft,
+ textborder=rectangle,
+ %textborder=bars,
+  % textborder=triangles,
+   % textborder=faded,
+  % Format of text header
+  eyecatcher=no,
+  headerborder=none,
+  headerheight=0.115\textheight,
+  headershape=rectangle,
+  headershade=plain,
+  headerfont=\large\textsf, %Sans Serif
+  boxshade=plain,
+%  background=shade-tb,
+  background=plain,
+  linewidth=1pt
+  }
+  % Eye Catcher
+  {\includegraphics[width=3em]{D1077}} % No eye catcher for this poster. (eyecatcher=no above). If an eye catcher is present, the title is centered between eye-catcher and logo.
+  % Title
+  {\sf %Sans Serif
+  %\bf% Serif
+  \color{blue}{\textsc{Álgebras associadas a grafos orientados em níveis}}  \vspace{0.2em}} 
+  %\color{black}
+  % Authors
+  {\sf %Sans Serif
+  % Serif
+  \affiliationright{\small{\textbf{\textsc{10$^a$ Semana da Licenciatura em Matemática \\ Departamento de Áreas Acadêmicas II \\ Coordenação da Área AcadÊmica de Matemática \\ IFG - Câmpus Goiânia, GO, Brasil}}  \vspace{0.2em}}}\\
+ %\hspace{1em}
+  % \hspace{2em}
+ \small{\small{\authorleft{\small{Kariny de Andrade Dirino (IFG - Câmpus Goiânia) -}}
+\emailright{xxxx}  \\
+\authorright{Paulo Ferreira Viana Filho (IFG - Câmpus Goiânia) - }
+\emailright{xx} \\ 
+\authorright{José Eder Salvador de Vasconcelos (IFG - Câmpus Goiânia) - }
+\emailright{xxx}}}}
+ % University logo
+  {% The makebox allows the title to flow into the logo, this is a hack because of the L shaped logo.
+    \makebox[-1,3cm][r]{%
+      \begin{minipage}{10cm}
+        \hfill
+        \includegraphics[height=2cm]{logo_goiania}
+      \end{minipage}
+      %%%%%      
+    }
+  }
+  \tikzstyle{light shaded}=[top color=baposterBGtwo!30!white,bottom color=baposterBGone!30!white,shading=axis,shading angle=30]
+
+  % Width of left inset image
+    % \setlength{\leftimgwidth}{0.78em+8.0em}
+\setlength{\leftimgwidth}{0.5em+5.0em}
+    \newcommand{\colouredcircle}[1]{%
+      \tikz{\useasboundingbox (-0.2em,-0.2em) rectangle(0.2em,0.2em); \draw[draw=black,fill=baposterBGone!80!black!#1!white,line width=0.03em] (0,0) circle(0.18em);}
+			}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Introdução}{name=contribution,column=0,row=0}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   {}In the last decade physicists have been increasingly concerned about economic or finantial subjects. This has given way to a new branch of knowledge called \textit{Econophysics}.\\
+ Consideremos o seguinte polinômio com coeficientes em um anel não comutativo $P(t) = t^2 + a_1t + a_2$ e $x_1$, $x_2$ suas raízes à direita com a diferença $x_1 - x_2$ invertível e $t$ uma variável central. Sejam,
+\begin{equation}x_{1,2} = (x_2 - x_1)x_2(x_2 - x_1)^{-1}, \ x_{2,1} = (x_1 - x_2)x_1(x_1 - x_2)^{-1}.
+\label{eq01}
+\end{equation}
+Temos,
+\begin{eqnarray}
+ x_1^2 + a_1x_1 + a_2 = 0  \ \ \ \mbox{e} \ \ \   x_2^2 + a_1x_2 + a_2 = 0.
+\label{eq02}
+\end{eqnarray}
+Disso,
+\begin{eqnarray}
+ \nonumber 0&=& x_1^2 - x_2^2 + a_1(x_1 - x_2) = x_1^2 - x_1x_2 + x_1x_2 - x_2^2 + a_1(x_1 - x_2) \\
+\nonumber &=&x_1(x_1 - x_2) + (x_1 - x_2)x_2 + a_1(x_1 - x_2) \\
+&=& x_1 + (x_1 - x_2)x_2(x_1 - x_2)^{-1} + a_1
+\label{eq03}
+\end{eqnarray}
+Logo,
+\begin{eqnarray}
+ a_1 = -x_1 - (x_1 - x_2)x_2(x_1 - x_2)^{-1}=-x_1-x_{1,2}.
+\label{eq04}
+\end{eqnarray}
+Substituindo na primeira equação de (\ref{eq02}) temos, 
+\begin{eqnarray}
+\nonumber 0&=&x_1^2 - (x_1 + (x_1 - x_2)x_2(x_1 - x_2)^{-1}x_1 + a_2 \\
+&=& x_1^2 - x_1^2 - (x_1 - x_2)x_2(x_1 - x_2)^{-1}x_1+a_2
+\label{eq05}
+\end{eqnarray}
+Donde,
+\begin{eqnarray}
+ a_2 =(x_1 - x_2)x_2(x_1 - x_2)^{-1}x_1=x_{1,2}x_1.
+\label{eq06}
+\end{eqnarray} 
+Então,
+\begin{eqnarray}
+\nonumber p(t)&=& t^2+(-x_1 - x_{1,2})t+x_{1,2}x_1=t^2-x_1t- x_{1,2}t+x_{1,2}x_1 \\
+\nonumber &=& (t-x_{1,2})t+(t-x_{1,2})(-x_1)\\
+ &=& (t - x_{1,2})(t - x_1).
+\label{eq07}
+\end{eqnarray}
+
+Com um procedimento análogo, pode-se mostrar que $P(t)=(t - x_{2,1})(t - x_2)$. Assim temos duas fatorações diferentes de $P(t)$. Essas duas fatorações implicam as seguintes identidades entre as pseudo raízes:
+$$x_{1,2} + x_1 = x_{2,1} + x_2, \ x_{1,2} x_1 = x_{2,1} x_2.$$
+É natural estudar a álgebra $Q_2$ com geradores $x_{1,2}$, $x_{2,1}$, $x_1$, $x_2$ satisfazendo as relações acima. Em \cite{amberg07:nonrigid} Gelfand, Retakh, Serconek and Wilson, introduziram uma nova classe de álgebras $A(\Gamma)$ associadas a grafos em níveis. A álgebra $A(\Gamma)$ é gerada pelas arestas do grafo. As relações são definidas associando cada caminho em $\Gamma$ a um polinômio com coeficientes na álgebra associativa livre sobre o conjunto de arestas e determinando que  caminhos distintos com mesmo inicio e fim representam a fatoração do mesmo polinômio em variáveis não comutativas. Essas álgebras são uma generalização das álgebras $Q_n$ introduzidas por Gelfand, Retakh and Wilson em \cite{aamberg07:nonrigid}.
+\vspace{0,1cm}
+}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Preliminares}{name=model,column=0,below=contribution}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Sejam $K$ um corpo e para qualquer conjunto $W$ seja $T(W)$ a álgebra associativa livre em $W$ sobre $K$. Seja $\Gamma=(E,V)$ um grafo onde $V$ é o conjunto de vértice e $E$ é o conjunto de arestas de $\Gamma$, existem funções $t,h:E \rightarrow V$,
+$t(e)$:=vértice inicial de $e$ e $h(e)$:=vértice final de $e$. Dizemos que $\Gamma$ é um grafo em níveis se, $V=\bigcup_{i=0}^nV_i, \ E=\bigcup_{i=0}^nE_i$.
+e para $e\in E_i, \ t(e)\in V_i \ \mbox{e} \ h(e)\in V_{i-1}$.
+
+Se $v\in V_1 (e\in E_1)$ dizemos que o nível de $v$ é $i$ e indicamos por $|v|=i$. Sejam $V_0=\{\star\}$ e $V_+=\bigcup^{n}_{i>0}V_i$. Para cada $v\in V_+$ fixe algum $e_v \in E$ com $t(e_v)=v$: chamamos esta de aresta indicativa. Um caminho de $v$ a $w$ é uma sequência de arestas $\pi=\{e_1,...,e_m\}$ tal que $t(e_1)=v$, $h(e_m)=k$ e $t(e_{i+1})=h(e_i)$. Neste caso, $t(\pi)=v$, $h(\pi)=w$ e dizemos que o comprimento de $\pi$ é $m$, denotado por $l(\pi)$. Escrevemos $v>w$ se existe uma caminho de $v$ a $w$. Para $\pi=\{e_1,...,e_m\}$ definimos, $e(\pi,k)=\displaystyle \sum_{1\leq i_1 \leq \cdots \leq i_k \leq m}e_{i_1}e_{i_2}\dots e_{i_k}.$
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\headerbox{Séries de Hilbert das álgebras graduadas $A(\Gamma)$}{name=results,column=1,span=1,row=0}{
+
+Sejam $V$ um espaço vetorial com base $\{v_j | j\in J\}$ e $R\subseteq T(V).$ 
+Denotemos por $\left\langle R\right\rangle$ o ideal de $T(V)$ gerado por $R$, isto é,
+\begin{center}
+$\left\langle R\right\rangle= \{\displaystyle\sum_{i=1}^k y_i r_i z_i\ \ |\ \ k\geq 0, y_i, z_i\in T(V), r_i\in R\}$
+\end{center}
+Então dizemos que a álgebra quociente $T(V)/\left\langle R\right\rangle$ é a álgebra definida por geradores $\{v_j | j\in J\}$ e relações $R$.
+
+Dizemos que a álgebra definida por geradores $\{v_1,\ldots,v_n\}$ e relações $R$ é uma álgebra quadrática se $R\subseteq V\otimes V$.
+	 Seja $R$ o ideal bilateral de $T(E)$ gerado por $$\{e(\pi_1,k_1)-e(\pi_2,k_2) : t(\pi_1)=t(\pi_2), h(\pi_1)=h(\pi_2), 1\leq k\leq l(\pi_1)\}.$$		
+\textbf{Definição:} $A(\Gamma)=T(E)/R$.
+Um espaço vetorial é $A$ graduado (veja \cite{jacobsonlectures}) se para cada $a\in A$ existe um subespaço $V_a$ tal que $V=\displaystyle \bigoplus_{a\in A} V_a$.
+
+ Seja $V$ um espaço vetorial $\mathbb{Z}_{\geq0}$-graduado e suponha que cada $V_i$ tem dimensão finita. Definimos a  \textit{série de Hilbert} de $V$, $H(V,t)$, por
+$$H(V,t) = \displaystyle\sum_{i\geq 0}(dim(V_i))t^i.$$
+Agora, apresentaremos uma expressão que permite calcular a série de Hilbert das álgebras $A(\Gamma)$.
+\begin{theo} Seja $\Gamma$ um grafo em níveis com um único vértice minimal $\star$ de nível 0 e $h(t)$ a série de Hilbert de $A(\Gamma)$. Então,
+$$h(t)=\frac{1-t}{1+\displaystyle\sum_{v_1\geq\cdots \geq v_l \geq \star}(-1)^lt^{|v_1|-|v_l|+1}}.$$
+\end{theo}
+ }	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\headerbox{A álgebra $A(\Gamma_{\mathcal P_5})$}{name=conclusion,column=1,span=1,below=results}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Seja $V$ o conjunto de todos os subconjuntos de $\{1,2,3,4,5\}$ que têm exatamente dois elementos. Dada a condição: dois elementos $v_1$ e $v_2 \in V$ são adjacentes se $v_1 \cap v_2 = \varnothing $. Essa relação de adjacência define o {\it grafo de Petersen}
+	
+	\center{ 
+       \includegraphics[width=0.35\textwidth]{grafo}
+       
+        } 
+             
+Construímos o grafo de Hasse do reticulado do grafo de Petersen e calculamos a série de Hilbert da Álgebra $A(\Gamma_{\mathcal P_5})$, expressão dada por:
+        $$H(A(\Gamma),t)=\frac{1}{-6t^3 + 29t^2 - 26t + 1}.$$
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  \headerbox{Referências Bibliográficas}{name=references,column=1,span=1, below=conclusion}{ %span=2,above=bottom}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+   \smaller \smaller
+    %\vspace{-0.4em}
+    \bibliographystyle{ieee}
+    \renewcommand{\section}[2]{\vskip 0.05em}
+      \begin{thebibliography}{1}\itemsep=-0.01em
+      \setlength{\baselineskip}{0.3em}
+     
+		\bibitem{aamberg07:nonrigid}
+        I. Gelfand, V.Retakh, R.Wilson.
+        \newblock \textit{Quadratic-linear algebras associated with decompositions on non commutative plynomials and Differential polynomials.}
+        \newblock {Select Math,(N.S.), \textbf{7}, 493-523, 2001.}
+        
+				\bibitem{amberg07:nonrigid}
+        I. Gelfand, V.Retakh,S. Serconek, R.L. Wilson.
+        %and K. Hepp and Kippenhahn and H. A. Weidenmijiler and J. Zittartz.
+        \newblock \textit{On a class of algebras associated to directed graphs.} 
+        \newblock In {Selecta Math, (N.S.) 281-295, 2005.}
+        
+				\bibitem{jacobsonlectures}
+       N. Jacobson.
+        \newblock \textit{Lectures in Abstract Algebra, Vol.II - Linear Algebra.}
+        \newblock {Nostrand Company.Inc., Princeton, 1953.}
+        
+        
+      \end{thebibliography}
+     % \vspace{0.0em}
+  }
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\headerbox{Apoio}{name=apoio,column=1,span=1,below=references}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\makebox[-4cm][r]{%
+ %     \begin{minipage}{15cm}
+  %      \hfill
+   %     \includegraphics[height=3cm]{logo_res_gyn.jpg}
+    %  \end{minipage}
+\center{			
+ \begin{minipage}[c]{0.6\textwidth}
+       \includegraphics[width=0.2\textwidth]{logo_goiania}
+       \includegraphics[width=0.4\textwidth]{cartaz}
+       %\includegraphics[width=0.4\textwidth]{nepem.jpg}
+  \end{minipage}
+ }
+}\end{poster}
+
+\end{document}
