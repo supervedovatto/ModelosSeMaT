@@ -1,6 +1,6 @@
 [submodule "Slides_LaTeX"]
 	path = Slides_LaTeX
-	url = https://github.com/supervedovatto/beamerthemes
+	url = git@github.com:supervedovatto/beamerthemes.git
 [submodule "Poster_LaTeX"]
 	path = Poster_LaTeX
 	url = git@github.com:supervedovatto/PosterSemat.git
