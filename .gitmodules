@@ -1,0 +1,3 @@
+[submodule "beamerthemes"]
+	path = Slides_LaTeX
+	url = git@github.com:supervedovatto/beamerthemes.git
