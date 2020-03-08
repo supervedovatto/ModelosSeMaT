@@ -4,3 +4,6 @@
 [submodule "Poster_LaTeX"]
 	path = Poster_LaTeX
 	url = git@github.com:supervedovatto/PosterSemat.git
+[submodule "Resumo_LaTeX"]
+	path = Resumo_LaTeX
+	url = git@github.com:supervedovatto/ResumoSeMaT.git
